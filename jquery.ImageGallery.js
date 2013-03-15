@@ -4,9 +4,9 @@
 	
 		options = $.extend({
 			duration: 400,
-			auto: 0,
 			easing: 'swing',
-			view: 1
+			rows: 3,
+			cols: 5
 		}, options);
 		
 		return this.each(function(){
@@ -109,20 +109,32 @@
 				newview,
 				alignImage = function(view){
 					var height = view.css('height'),
+						width = view.css('width'),
 						img = view.find('img'),
 						imgheight = img.get(0).height,
-						hpadding = (parseInt(height,10) - parseInt(imgheight,10)) / 2
+						imgwidth = img.get(0).width,
+						hpadding = (parseInt(height,10) - parseInt(imgheight,10)) / 2,
+						vpadding = (parseInt(width,10) - parseInt(imgwidth,10)) / 2
 					;
 				
 					if (hpadding > 0 && imgheight > 0) {
 						img.css('margin-top',hpadding);
-					} else if (imgheight === 0) {
-						//console.log('image align error(' + img.attr('src').substr(img.attr('src').lastIndexOf('/')+1) + '): the image height has returned as 0');
 					}
+				
+					if (vpadding > 0 && imgwidth > 0) {
+						img.css('margin-left',vpadding);
+					}
+					
 				}
 			;
 	
 			if (thumbs.length > 0) {
+			
+				// set up the gallery size
+				gallery.css({
+					'width': (thumbs.width()+parseInt(thumbs.css('margin-left'))+parseInt(thumbs.css('margin-right'))+parseInt(thumbs.css('padding-left'))+parseInt(thumbs.css('padding-right')))*options.cols,
+					'height': (thumbs.height()+parseInt(thumbs.css('margin-bottom'))+parseInt(thumbs.css('margin-top'))+parseInt(thumbs.css('padding-bottom'))+parseInt(thumbs.css('padding-top')))*options.rows
+				});
 	
 				// set up the thumbnails
 				thumbs.each(function(){
@@ -130,7 +142,7 @@
 					
 					if (that.parent().css('display') !== 'none') {
 						// align the image once it's loaded
-						that.load(function(){
+						that.imagesLoaded(function(){
 							
 							alignImage($(this));
 						});
@@ -146,7 +158,7 @@
 						// place the image in the viewer
 						viewer.empty();
 						viewer.append('<img src="'+ fullimg + '" />');
-						viewer.find('img').load(function(){
+						viewer.find('img').imagesLoaded(function(){
 							
 							// show the viewer
 							viewer.parent().fadeIn(easedur);
@@ -187,7 +199,7 @@
 								// initialize the next view
 								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs));
 								newview.find('img').each(function(){
-									$(this).load(function(){
+									$(this).imagesLoaded(function(){
 										alignImage($(this).parent());
 									});
 								});
@@ -222,7 +234,7 @@
 								// initialize the next view
 								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs));
 								newview.find('img').each(function(){
-									$(this).load(function(){
+									$(this).imagesLoaded(function(){
 										alignImage($(this).parent());
 									});
 								});
@@ -262,7 +274,7 @@
 							viewer.fadeOut(easedur, function(){
 								viewer.empty();
 								viewer.append('<img src="'+ nextimg + '" />');
-								viewer.find('img').load(function(){
+								viewer.find('img').imagesLoaded(function(){
 									viewer.fadeIn(easedur);
 									alignImage(viewer);
 								});
@@ -301,7 +313,7 @@
 							viewer.fadeOut(easedur, function(){
 								viewer.empty();
 								viewer.append('<img src="'+ nextimg + '" />');
-								viewer.find('img').load(function(){
+								viewer.find('img').imagesLoaded(function(){
 									viewer.fadeIn(easedur);
 									alignImage(viewer);
 								});
