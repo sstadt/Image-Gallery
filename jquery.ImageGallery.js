@@ -5,8 +5,8 @@
 		options = $.extend({
 			duration: 400,
 			easing: 'swing',
-			rows: 3,
-			cols: 5
+			rows: 4,
+			cols: 2
 		}, options);
 		
 		return this.each(function(){
@@ -133,7 +133,8 @@
 				// set up the gallery size
 				gallery.css({
 					'width': (thumbs.width()+parseInt(thumbs.css('margin-left'))+parseInt(thumbs.css('margin-right'))+parseInt(thumbs.css('padding-left'))+parseInt(thumbs.css('padding-right')))*options.cols,
-					'height': (thumbs.height()+parseInt(thumbs.css('margin-bottom'))+parseInt(thumbs.css('margin-top'))+parseInt(thumbs.css('padding-bottom'))+parseInt(thumbs.css('padding-top')))*options.rows
+					'height': (thumbs.height()+parseInt(thumbs.css('margin-bottom'))+parseInt(thumbs.css('margin-top'))+parseInt(thumbs.css('padding-bottom'))+parseInt(thumbs.css('padding-top')))*options.rows,
+					'overflow': 'hidden'
 				});
 	
 				// set up the thumbnails
@@ -161,8 +162,8 @@
 						viewer.find('img').imagesLoaded(function(){
 							
 							// show the viewer
-							viewer.parent().fadeIn(easedur);
-							overlay.fadeIn(easedur);
+							viewer.parent().fadeIn(options.duration);
+							overlay.fadeIn(options.duration);
 							alignImage(viewer);
 						});
 						
@@ -176,7 +177,7 @@
 				});
 				
 				// set up thumbnail tab navigation indicator
-				pos.text('page 1 of ' + Math.ceil(thumbs.length / gallery_thumbs))
+				pos.text('page 1 of ' + Math.ceil(thumbs.length / (options.cols*options.rows)))
 				
 				// set up the previous tab button
 				prev.bind('click',function(){
@@ -197,7 +198,7 @@
 								}
 		
 								// initialize the next view
-								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs));
+								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / (options.cols*options.rows)));
 								newview.find('img').each(function(){
 									$(this).imagesLoaded(function(){
 										alignImage($(this).parent());
@@ -232,7 +233,7 @@
 								}
 		
 								// initialize the next view
-								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / gallery_thumbs));
+								pos.text('page ' + newview.attr('id').substr(7) + ' of ' + Math.ceil(thumbs.length / (options.cols*options.rows)));
 								newview.find('img').each(function(){
 									$(this).imagesLoaded(function(){
 										alignImage($(this).parent());
@@ -271,11 +272,11 @@
 							nextimg = nextimg.substr(0,nextimg.indexOf('thumbs')) + nextimg.substr(nextimg.lastIndexOf('/')+1);
 		
 							// place the image in the viewer
-							viewer.fadeOut(easedur, function(){
+							viewer.fadeOut(options.duration, function(){
 								viewer.empty();
 								viewer.append('<img src="'+ nextimg + '" />');
 								viewer.find('img').imagesLoaded(function(){
-									viewer.fadeIn(easedur);
+									viewer.fadeIn(options.duration);
 									alignImage(viewer);
 								});
 							});
@@ -310,11 +311,11 @@
 							nextimg = nextimg.substr(0,nextimg.indexOf('thumbs')) + nextimg.substr(nextimg.lastIndexOf('/')+1);
 		
 							// place the image in the viewer
-							viewer.fadeOut(easedur, function(){
+							viewer.fadeOut(options.duration, function(){
 								viewer.empty();
 								viewer.append('<img src="'+ nextimg + '" />');
 								viewer.find('img').imagesLoaded(function(){
-									viewer.fadeIn(easedur);
+									viewer.fadeIn(options.duration);
 									alignImage(viewer);
 								});
 							});
@@ -331,8 +332,8 @@
 					// viewer close button
 		
 					// hide the viewer
-					viewer.parent().fadeOut(easedur);
-					overlay.fadeOut(easedur);
+					viewer.parent().fadeOut(options.duration);
+					overlay.fadeOut(options.duration);
 				
 					return false;
 				});
