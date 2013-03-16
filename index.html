@@ -272,7 +272,16 @@ em { font-size: 0.8em; }
 		<script type="text/javascript" src="jquery.imagesloaded.min.js"></script>
 		<script type="text/javascript" src="jquery.ImageGallery.js"></script>
 		<script type="text/javascript">
+			// set up the gallery
 			$('#gallery').gallery();
+			
+			// some extra interface stuff... pay no attention to the man behind the curtain
+			console.log($('#gallery-viewer').find('a'));
+			$('#viewer-wrapper').find('a').hide(0).parent().bind('mouseenter',function(){
+				$(this).find('a').fadeIn(400);
+			}).bind('mouseleave',function(){
+				$(this).find('a').fadeOut(400);
+			});
 		</script>
 	</body>
 </html>
