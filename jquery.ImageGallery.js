@@ -164,23 +164,30 @@
 					return false;
 				});
 				
-				// set up viewer controls
-				viewer.parent().find('#viewer_next').bind('click',function(){
-					// viewer next button
+				// align the placeholder image in the viewer
+				viewer.find('img').imagesLoaded(function(){
+					alignImage(viewer);
+				});
+				
+				// viewer next button
+				viewnext.bind('click',function(){
 					
 					// get the next image
 					var viewerimg = viewer.find('img').attr('src'),
-						nextimg = viewerimg.substr(0,viewerimg.lastIndexOf('/')) + '/thumbs' + viewerimg.substr(viewerimg.lastIndexOf('/'));
-					
-					var index = 0;
+						nextimg = viewerimg.substr(0,viewerimg.lastIndexOf('/')) + '/thumbs' + viewerimg.substr(viewerimg.lastIndexOf('/')),
+						index = 0	
+					;
 					
 					// find the next image and navigate to it
 					thumbs.each(function(){
 						var thumbimg = $(this).find('img').attr('src');
 		
+						// if the thumbnail scanned is equal to the current viewer image, the next thumbnail should be loaded
 						if (thumbimg === nextimg) {
+							// if the next index is higher than the number of thumbnails, the next image is the first thumbnail
 							if (index + 1 > thumbs.length - 1) {
 								nextimg = $(thumbs[0]).find('img').attr('src');
+							// else, the next image is the next thumbnail
 							} else {
 								nextimg = $(thumbs[index+1]).find('img').attr('src');
 							}
@@ -196,7 +203,7 @@
 								});
 							});
 							
-							
+							// escape the loop
 							return false;
 						}
 						
@@ -204,8 +211,10 @@
 					});
 					
 					return false;
-				}).next().bind('click',function(){
-					// viewer previous button
+				});
+				
+				// viewer previous button
+				viewprev.bind('click',function(){
 					
 					// get the next image
 					var viewerimg = viewer.find('img').attr('src'),
@@ -217,9 +226,12 @@
 					thumbs.each(function(){
 						var thumbimg = $(this).find('img').attr('src');
 		
+						// if the current scanned image is equal to the image in the viewer, the previous thumbnail should be navigated to
 						if (thumbimg === nextimg) {
+							// if this is the first thumbnail, the last thumbnail is the correct image
 							if (index === 0) {
 								nextimg = $(thumbs[thumbs.length-1]).find('img').attr('src');
+							// else, the previous thumbnail is the correct image
 							} else {
 								nextimg = $(thumbs[index-1]).find('img').attr('src');
 							}
@@ -235,7 +247,7 @@
 								});
 							});
 							
-							
+							// escape the loop
 							return false;
 						}
 						
@@ -243,15 +255,8 @@
 					});
 					
 					return false;
-				}).next().bind('click',function(){
-					// viewer close button
-		
-					// hide the viewer
-					viewer.parent().fadeOut(options.duration);
-					overlay.fadeOut(options.duration);
-				
-					return false;
 				});
+				
 			}
 			
 		});
