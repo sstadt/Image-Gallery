@@ -135,8 +135,12 @@
 				return false;
 			});
 				
-			// align the placeholder image in the viewer
+			// place the first image in the viewer
+			var initimg = thumbs.filter(':first').find('img').attr('src');
+			initimg = initimg.substr(0,initimg.indexOf('/thumbs')) + initimg.substr(initimg.lastIndexOf('/'));
+			viewer.hide().empty().append('<img src="'+ initimg + '" />');
 			viewer.find('img').imagesLoaded(function(){
+				viewer.fadeIn(options.duration);
 				alignImage(viewer);
 			});
 			

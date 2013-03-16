@@ -74,9 +74,9 @@ em { font-size: 0.8em; }
 #viewer-wrapper {
 	position: relative;
 	margin: 0 10px 10px 10px;
-	padding: 10px;
-	width: 460px;
-	height: 623px;
+	padding: 20px;
+	width: 440px;
+	height: 603px;
 	background-color: #282828;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -126,7 +126,7 @@ em { font-size: 0.8em; }
 }
 
 #gallery-viewer-prev {
-	margin-left: -10px;
+	margin-left: -20px;
 	-webkit-border-top-right-radius: 6px;
 	-webkit-border-bottom-right-radius: 6px;
 	-moz-border-radius-topright: 6px;
@@ -267,7 +267,10 @@ em { font-size: 0.8em; }
 		<script type="text/javascript" src="jquery.ImageGallery.js"></script>
 		<script type="text/javascript">
 			// set up the gallery
-			$('#gallery').gallery();
+			$('#gallery').gallery({
+				'rows': 4,
+				'cols': 2
+			});
 			
 			// some extra interface stuff... pay no attention to the man behind the curtain
 			$('#viewer-wrapper').find('a').hide(0).parent().bind('mouseenter',function(){
