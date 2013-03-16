@@ -102,10 +102,10 @@
 				next = $('#' + gallery.attr('id') + '-next'),
 				prev = $('#' + gallery.attr('id') + '-prev'),
 				pos = $('#' + gallery.attr('id') + '-pos'),
-				thumbs = $('.thumbnail'),
-				viewer = $('#image_viewer'),
-				overlay = $('#modal_overlay'),
-				gallery_thumbs = 15,
+				viewer = $('#' + gallery.attr('id') + '-viewer'),
+				viewnext = $('#' + gallery.attr('id') + '-viewer-next'),
+				viewprev = $('#' + gallery.attr('id') + '-viewer-prev'),
+				thumbs = gallery.children().children(), // I know... this is terrible, but the end goal is to remove the tab divs and hence the second children() call, so it will be all good
 				newview,
 				alignImage = function(view){
 					var height = view.css('height'),
@@ -157,14 +157,15 @@
 						;
 						
 						// place the image in the viewer
-						viewer.empty();
-						viewer.append('<img src="'+ fullimg + '" />');
-						viewer.find('img').imagesLoaded(function(){
+						viewer.fadeOut(options.duration,function(){
+							viewer.empty();
+							viewer.append('<img src="'+ fullimg + '" />');
+							viewer.find('img').imagesLoaded(function(){
 							
-							// show the viewer
-							viewer.parent().fadeIn(options.duration);
-							overlay.fadeIn(options.duration);
-							alignImage(viewer);
+								// align the image and show the viewer
+								viewer.fadeIn(options.duration);
+								alignImage(viewer);
+							});
 						});
 						
 					});
