@@ -3,140 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>jQuery Image Gallery Plugin</title>
-		<style>
-html { font-family: Calibri, Arial, sans-serif; background-color: #4d4341; color: #fbf5d3; }
-html, body { margin: 0; padding: 0; }
-.wrapper { width: 800px; margin: 0 auto; overflow: hidden; }
-
-a.download-button { float: right; display: block; padding: 10px; margin: 20px 10px 10px 10px; text-decoration: none; color: #fbf5d3; background-color: #1e6100; font-size: 14px; border: 1px solid #339410; -webkit-box-shadow: 3px 3px 5px #12100f; -moz-box-shadow: 3px 3px 5px #12100f; box-shadow: 3px 3px 5px #12100f; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; -webkit-transition: 350ms; -moz-transition: 350ms; -o-transition: 350ms; transition: 350ms; }
-a.download-button:hover { background-color: #267C00; }
-a.download-button:active { margin: 23px 7px 7px 13px; -webkit-box-shadow: 0px 0px 5px #12100f; -moz-box-shadow: 0px 0px 5px #12100f; box-shadow: 0px 0px 5px #12100f; }
-
-dd { margin: 5px 0 10px 10px; }
-
-pre { clear: both; background-color: #84786a; color: #252a2e; border: 1px solid #252a2e; padding: 20px; margin: 20px; }
-em { font-size: 0.8em; }
-
-#gallery-wrapper {
-	margin: 0;
-	clear: both;
-}
-
-#thumbs-wrapper {
-	float: left;
-}
-
-#gallery-nav {
-	overflow: hidden;
-	margin-bottom: 12px;
-}
-
-#gallery-nav a {
-	float: right;
-	text-decoration: none;
-	color: #fbf5d3;
-	background-color: #282828;
-	margin-right: 10px;
-	padding: 10px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-
-#gallery-nav a:hover {
-	background-color: #308bd1;
-}
-
-#gallery-nav p {
-	text-transform: uppercase;
-	margin: 0;
-	padding: 10px;
-	width: 110px;
-}
-
-.thumbnail {
-	background-color: #282828;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	float: left;
-	height: 110px;
-	width: 110px;
-	margin: 10px;
-	padding: 10px;
-}
-
-.thumbnail:hover {
-	background-color: #308bd1;
-	cursor: pointer;
-}
-
-#viewer-wrapper {
-	position: relative;
-	margin: 0 10px 10px 10px;
-	padding: 20px;
-	width: 440px;
-	height: 603px;
-	background-color: #282828;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
-	float: right;
-	overflow: hidden;
-}
-
-#gallery-viewer {
-	width: 100%;
-	height: 100%;
-}
-
-#gallery-viewer img {
-	max-height: 100%;
-	max-width: 100%;
-}
-
-#viewer-wrapper a {
-	background-color: #4d4341;
-	display: block;
-	position: absolute;
-	width: 50px;
-	top: 50%;
-	padding: 10px;
-	margin-top: -16px;
-	z-index: 10000;
-	color: #fbf5d3;
-	font-size: 12px;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-#viewer-wrapper a:hover {
-	text-decoration: underline;
-}
-
-#gallery-viewer-next {
-	left: 100%;
-	margin-left: -70px;
-	-webkit-border-top-left-radius: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	-moz-border-radius-topleft: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	border-top-left-radius: 6px;
-	border-bottom-left-radius: 6px;
-}
-
-#gallery-viewer-prev {
-	margin-left: -20px;
-	-webkit-border-top-right-radius: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	-moz-border-radius-topright: 6px;
-	-moz-border-radius-bottomright: 6px;
-	border-top-right-radius: 6px;
-	border-bottom-right-radius: 6px;
-}
-
-
-		</style>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
 	</head>
 	<body>
 		
@@ -263,8 +131,8 @@ em { font-size: 0.8em; }
 		
 		<!-- javascript -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-		<script type="text/javascript" src="jquery.imagesloaded.min.js"></script>
-		<script type="text/javascript" src="jquery.ImageGallery.js"></script>
+		<script type="text/javascript" src="js/jquery.imagesloaded.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ImageGallery.js"></script>
 		<script type="text/javascript">
 			// set up the gallery
 			$('#gallery').gallery({
