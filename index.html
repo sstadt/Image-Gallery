@@ -22,13 +22,13 @@
 					</a>
 				</li>
 				<li>
-					<a href='#gallery-wrapper'>
+					<a id="show-gallery" href='#gallery-wrapper'>
 						<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_gallery.png" height="70px" width="95px" alt="Gallery Icon" />
 						<p>gallery</p>
 					</a>
 				</li>
 				<li>
-					<a href='#setup-wrapper'>
+					<a id="show-setup" href='#setup-wrapper'>
 						<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_setup.png" height="70px" width="95px" alt="Setup Icon" />
 						<p>setup</p>
 					</a>
@@ -142,10 +142,18 @@
 			});
 			
 			// some extra interface stuff... pay no attention to the man behind the curtain
-			$('#viewer-wrapper').find('a').hide(0).parent().bind('mouseenter',function(){
-				$(this).find('a').fadeIn(400);
-			}).bind('mouseleave',function(){
-				$(this).find('a').fadeOut(400);
+			$('#setup-wrapper').hide();
+			$('#show-setup').click(function(){
+				$('#gallery-wrapper').fadeOut(400,function(){
+					$('#setup-wrapper').fadeIn();
+				});
+				return false;
+			});
+			$('#show-gallery').click(function(){
+				$('#setup-wrapper').fadeOut(400,function(){
+					$('#gallery-wrapper').fadeIn();
+				});
+				return false;
 			});
 		</script>
 	</body>

@@ -23,6 +23,7 @@ btn dark pink:		#a0335d
 
 html {
 	font-family: 'Lato', sans-serif;
+	color: #fff;
 	background-attachment: fixed;
 	background-image: linear-gradient(bottom, #135578 0%, #043959 20%, #115175 50%, #043959 100%);
 	background-image: -o-linear-gradient(bottom, #135578 0%, #043959 20%, #115175 50%, #043959 100%);
@@ -41,9 +42,10 @@ html {
 }
 
 body {
+	height: 100%;
 	background-image: url('http://www.scottstadt.com/portfolio/image-gallery/images/bg_highlight.png');
-	background-position: center center;
-	background-repeat: no-repeat;
+	background-position: center center; 
+	background-repeat: no-repeat; 
 	background-attachment: fixed;
 }
 
@@ -55,12 +57,13 @@ html, body {
 #wrapper {
 	width: 960px;
 	margin: 0 auto;
+	padding-bottom: 100px;
 	overflow: hidden;
 }
 
 #header {
 	width: 960px;
-	height: 100px;
+	height: 50px;
 }
 
 #nav {
@@ -144,7 +147,7 @@ ul#nav {
 }
 
 #viewer-wrapper {
-	height: 378px;
+	height: 348px;
 }
 
 #gallery-viewer {
@@ -165,7 +168,7 @@ ul#nav {
 }
 
 #thumbs-nav {
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-bottom: 2px;
 }
 
@@ -173,6 +176,7 @@ ul#nav {
 	width: 50%;
 	text-align: center;
 	margin: 0 auto;
+	line-height: 30px;
 }
 
 #gallery-next, #gallery-viewer-next {
@@ -183,31 +187,21 @@ ul#nav {
 	float: left;
 }
 
+#gallery-next, #gallery-viewer-next, #gallery-prev, #gallery-viewer-prev {
+	color: #fff;
+	margin: 0 10px;
+	line-height: 30px;
+}
+
 .thumbnail {
 	float: left;
 	width: 140px;
 	height: 138px;
 }
 
-/* -------- Document -------- */
+/* -------- Setup -------- */
 
-/* -------- Document -------- */
-
-/* -------- Document -------- */
-
-/* -------- Document -------- */
-
-/* -------- Document -------- */
-
-/* -------- Document -------- */
-
-
-
-
-
-
-
-
-
-
+#setup-wrapper{
+	height: 590px;
+}
 
