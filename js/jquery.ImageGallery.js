@@ -86,6 +86,7 @@
 			});
 	
 			// set up the thumbnails
+			thumbs.css('cursor','pointer');
 			thumbs.each(function(){
 				$(this).bind('click', function(){
 					
