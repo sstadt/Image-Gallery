@@ -97,7 +97,7 @@ Dependencies
 
 Image Gallery is a jQuery plugin, and uses the ImagesLoaded plugin to accurately determine when an image is loaded across all browsers and situations.
 
-jQuery
+jQuery - http://jquery.com/download/\n
 ImagesLoaded - https://github.com/desandro/imagesloaded
 
 Further Customization
