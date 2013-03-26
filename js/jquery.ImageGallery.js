@@ -5,8 +5,8 @@
 		options = $.extend({
 			duration: 400,
 			easing: 'swing',
-			rows: 4,
-			cols: 2
+			rows: 1,
+			cols: 5
 		}, options);
 		
 		return this.each(function(){
@@ -86,7 +86,12 @@
 			});
 	
 			// set up the thumbnails
-			thumbs.css('cursor','pointer');
+			thumbs.css({
+				'cursor':'pointer',
+				'display':'block'
+				
+			});
+			
 			thumbs.each(function(){
 				$(this).bind('click', function(){
 					
@@ -115,7 +120,7 @@
 				
 			
 			// set up thumbnail tabs
-			thumbs.hide(0).slice(0,tiles).show();
+			thumbs.hide(0).slice(0,tiles).fadeIn(options.duration);
 				
 			// set up thumbnail tab navigation indicator
 			pos.text('page 1 of ' + pages);
