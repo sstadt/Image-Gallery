@@ -105,23 +105,132 @@
 				
 				<div id="setup-wrapper">
 				
-					<h3>Setting Up Your Image Gallery</h3>
+					<h3>Setting Up Your Image Gallery<h3>
+					
+					<p>This image gallery plugin was designed for maximum compatability with a wide array of layouts. As such, adherance to naming conventions is essential for making sure each component of the gallery works properly. This allows for more freedom in placing the various components of the gallery on the page, but also means that if naming conventions are not followed portions of the interface may not work properly. This may require a bit more work up front to get the gallery up and running, but will also impart a great deal of versatility when integrating the plugin to a new page or design.</p>
+					
+					<p>To name each component, choose an Id for your image gallery. Inside this div should be each of the thumbnails for the images in your gallery. For this example, we'll simply call the div 'gallery'.</p>
 
-					<p></p>
-
-<pre><code>&lt;a href="#" id="gallery-prev">Previous&lt;/a&gt;&lt;a href="#" id="gallery-next">Next&lt;/a&gt;
-&lt;div id="rolodex"&gt;
-	&lt;div id="rolodex-content"&gt;
-	&lt;/div&gt;
+<pre><code>&lt;div id="gallery"&gt;
+	&lt;img src="images/gallery/thumbs/image1.jpg" alt="First thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image2.jpg" alt="Second thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image3.jpg" alt="Third thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image4.jpg" alt="Fourth thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image5.jpg" alt="Fifth thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image6.jpg" alt="Sixth thumbnail" /&gt;
+	&lt;img src="images/gallery/thumbs/image7.jpg" alt="Seventh thumbnail" /&gt;
 &lt;/div&gt;
-
 </code></pre>
 
-					<h3>Further Customization</h3>
-					<p>The gallery() function will also take an options object for further customization.</p>
+					<p>There are a few things to notice here. Firstly, the thumbnails images are located within the *thumbs* folder, which is located within the *gallery* folder on the server. The full size images in this example would be located within the *gallery* folder. The two most important takeaways here are thus: the thumbnails should be in a folder named *thumbs*, and the *thumbs* folder should be located in the same folder as the full size images. Lastly, each thumbnail image should have the same name and file extension as it's full size counterpart, so image1.jpg in the *thumbs* folder would have a matching full size image1.jpg in the *gallery* directory.</p>
+					
+					<p>Sometimes you might not want to use a static size for your thumbnails, if you want your thumbnails to maintain the aspect ratio of the image, for instance. The plugin requires a fixed size for the thumbnails in order to properly set the height and width of the thumbnail portion of the gallery, but you can get around this by nesting each image in a div and styling the thumbnail divs to be a particular size.</p>
+
+<pre><code>.thumbnail {
+	height: 100px;
+	width: 100px;
+}
+
+&lt;div id="gallery"&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image1.jpg" alt="First thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image2.jpg" alt="Second thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image3.jpg" alt="Third thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image4.jpg" alt="Fourth thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image5.jpg" alt="Fifth thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image6.jpg" alt="Sixth thumbnail" /&gt;
+	&lt;/div&gt;
+	&lt;div class=".thumbnail"&gt;
+		&lt;img src="images/gallery/thumbs/image7.jpg" alt="Seventh thumbnail" /&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+	
+					<p>This is quite handy, as this structure will allow the plugin to automagically center the image within the boundaries of the thumbnail divs.</p>
+					
+					<p>Now that we have our gallery in place, we can set up the other components of the image gallery. There are six other components to the image gallery: the gallery position indicator, gallery next button, gallery previous button, image viewer, image viewer next button, and image viewer previous button. To derive the proper ID name each component should have to work with the plugin, add the following suffix to the ID of each respective gallery component: -pos, -next, -prev, -viewer, -viewer-next, -viewer-prev. So with our example ID of *gallery*, we would derive the following IDs...</p>
+
+					<p class="gallery-labels">gallery-pos<br/>
+					gallery-next<br/>
+					gallery-prev<br/>
+					gallery-viewer<br/>
+					gallery-viewer-next<br/>
+					gallery-viewer-prev</p>
+	
+					<p>Once you've labeled the IDs of each component, you're free to place them anywhere on the page. Anywhere, that is, but within the *gallery* div, whose only child elements should be a list of thumbnails. Here is an example set up for the other components:</p>
+
+<pre><code>&lt;div id="viewer-wrapper"&gt;
+	&lt;div id="gallery-viewer"&gt;
+		&lt;img alt="Placeholder" src="images/placeholder.png"&gt;
+	&lt;/div&gt;&lt;!-- #gallery-viewer --&gt;
+	&lt;div id="viewer-nav"&gt;
+		&lt;a id="gallery-viewer-next" href="#"&gt;next&lt;/a&gt;
+		&lt;a id="gallery-viewer-prev" href="#"&gt;previous&lt;/a&gt;
+	&lt;/div&gt;&lt;!-- #viewer-nav --&gt;
+&lt;/div&gt;&lt;!-- #viewer-wrapper" --&gt;
+
+&lt;div id="thumbs-nav"&gt;
+	&lt;a id="gallery-next" href="#"&gt;next&lt;/a&gt;
+	&lt;a id="gallery-prev" href="#"&gt;previous&lt;/a&gt;
+	&lt;p id="gallery-pos"&gt;page 1 of 2&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+	
+					<p>You may notice that I've placed a placeholder image in the viewer for initial loading. This is completely optional, but a nice red flag that something's gone wrong with the plugin. If everything is set up properly, the plugin will automatically place the first thumbnail in the viewer on load. So as long as everything is set up properly, you'll likely never see any image that is hard coded into the DOM.</p>
+					
+					<p>Now that we have each component labeled properly, it's just a matter of calling the _.gallery()_ method on the base *gallery* div.</p>
+
+<pre><code>$('#gallery').gallery();
+</code></pre>
+	
+					<p>There are multiple options available for perusal at the bottom of this page, but the most notable of them is the ability to customize the number of thumbnails visible in the gallery.</p>
+
+<pre><code>$('#gallery').gallery({
+	'rows':3,
+	'cols':5
+});
+</code></pre>
+	
+					<p>This sets up a 3x5 grid of thumbnails in the gallery. The plugin will then read your page styling and image sizes to determine the size the thumbnail area will need to be to show the proper number of thumbnails and avoid clipping. The default size of the gallery is 1x5.</p>
+					
+					<h3>Dependencies</h3>
+					
+					<p>Image Gallery is a jQuery plugin, and uses the ImagesLoaded plugin to accurately determine when an image is loaded across all browsers and situations.</p>
+					
 					<dl>
-						<dt>setting</dt>
-						<dd><em>default: x </em><br/>Description.</dd>
+						<dt>jQuery</dt>
+						<dd></dd>
+						
+						<dt>ImagesLoaded</dt>
+						<dd>https://github.com/desandro/imagesloaded</dd>
+					</dl>
+					
+					<h3>Further Customization</h3>
+					
+					<p>The gallery() function will take an options object for further customization.</p>
+					
+					<dl>
+						<dt>duration</dt>
+						<dd><em>default: 400</em><br/>The animation durations.</dd>
+						    
+						<dt>easing</dt>
+						<dd><em>default: 'swing'</em><br/>The type of easing to use for animations.</dd>
+						
+						<dt>rows</dt>
+						<dd><em>default: 1</em><br/>The number of thumbnail rows to display.</dd>
+						
+						<dt>cols</dt>
+						<dd><em>default: 5</em><br/>The number of thumbnail columns to display.</dd>
 					</dl>
 				
 				</div><!-- #setup-wrapper -->

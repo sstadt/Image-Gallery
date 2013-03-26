@@ -92,10 +92,10 @@ There are multiple options available for perusal at the bottom of this page, but
 	
 This sets up a 3x5 grid of thumbnails in the gallery. The plugin will then read your page styling and image sizes to determine the size the thumbnail area will need to be to show the proper number of thumbnails and avoid clipping. The default size of the gallery is 1x5.
 
-Dependancies
+Dependencies
 ------------
 
-Image Gallery is a jQuery plugin, and uses the ImagesLoaded plugin do accurately determine when an image is loaded across all browsers and situations.
+Image Gallery is a jQuery plugin, and uses the ImagesLoaded plugin to accurately determine when an image is loaded across all browsers and situations.
 
 jQuery
 ImagesLoaded - https://github.com/desandro/imagesloaded

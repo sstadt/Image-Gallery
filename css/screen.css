@@ -212,7 +212,20 @@ ul#nav {
 
 /* -------- Setup -------- */
 
-#setup-wrapper{
-	height: 590px;
+#setup-wrapper p, pre, dl {
+	font-size: 12px;
+}
+
+pre {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+dd {
+	margin-bottom: 10px;
+}
+
+.gallery-labels {
+	margin-left: 10px;
 }
 
