@@ -57,18 +57,13 @@ html, body {
 #wrapper {
 	width: 960px;
 	margin: 0 auto;
-	padding-bottom: 70px;
+	padding-bottom: 50px;
 	overflow: hidden;
 }
 
 #header {
 	width: 960px;
-	height: 70px;
-}
-
-#nav {
-	float: right;
-	width: 200px;
+	height: 50px;
 }
 
 #content {
@@ -85,8 +80,19 @@ h1 {
 
 /* -------- Navigation -------- */
 
-#nav {
+#followbox {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 0;
+	width: 200px;
+}
+
+#nav-wrapper {
+	float: right;
 	height: 620px;
+	width: 200px;
+	margin-bottom: 50px;
 }
 
 ul#nav {
@@ -214,11 +220,16 @@ ul#nav {
 
 #setup-wrapper p, pre, dl {
 	font-size: 12px;
+	font-weight: normal;
 }
 
 pre {
 	padding: 20px;
 	background-color: rgba(0, 0, 0, 0.5);
+}
+
+code {
+	font-weight: normal;
 }
 
 dd {

@@ -13,27 +13,30 @@
 			<div id="header">
 				<h1>Image-Gallery</h1>
 			</div><!-- #header -->
-		
-			<ul id="nav">
-				<li>
-					<a href='https://github.com/sstadt/Image-Gallery'>
-						<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_download.png" height="70px" width="95px" alt="Download Icon" />
-						<p>download</p>
-					</a>
-				</li>
-				<li>
-					<a id="show-gallery" href='#gallery-wrapper'>
-						<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_gallery.png" height="70px" width="95px" alt="Gallery Icon" />
-						<p>gallery</p>
-					</a>
-				</li>
-				<li>
-					<a id="show-setup" href='#setup-wrapper'>
-						<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_setup.png" height="70px" width="95px" alt="Setup Icon" />
-						<p>setup</p>
-					</a>
-				</li>
-			</ul>
+			
+			<div id="followbox"></div>
+			<div id="nav-wrapper">
+				<ul id="nav">
+					<li>
+						<a href='https://github.com/sstadt/Image-Gallery'>
+							<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_download.png" height="70px" width="95px" alt="Download Icon" />
+							<p>download</p>
+						</a>
+					</li>
+					<li>
+						<a id="show-gallery" href='#gallery-wrapper'>
+							<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_gallery.png" height="70px" width="95px" alt="Gallery Icon" />
+							<p>gallery</p>
+						</a>
+					</li>
+					<li>
+						<a id="show-setup" href='#setup-wrapper'>
+							<img src="http://www.scottstadt.com/portfolio/image-gallery/images/btn_setup.png" height="70px" width="95px" alt="Setup Icon" />
+							<p>setup</p>
+						</a>
+					</li>
+				</ul>
+			</div>
 		
 			<div id="content">
 				
@@ -241,6 +244,7 @@
 		
 		<!-- javascript -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/jquery.jfollow.js"></script>
 		<script type="text/javascript" src="js/jquery.imagesloaded.min.js"></script>
 		<script type="text/javascript" src="js/jquery.ImageGallery.js"></script>
 		<script type="text/javascript">
@@ -265,6 +269,7 @@
 				});
 				return false;
 			});
+			$('#nav-wrapper').jfollow('#followbox', 20);
 		</script>
 	</body>
 </html>
