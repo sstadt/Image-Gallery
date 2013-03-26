@@ -57,13 +57,13 @@ html, body {
 #wrapper {
 	width: 960px;
 	margin: 0 auto;
-	padding-bottom: 100px;
+	padding-bottom: 70px;
 	overflow: hidden;
 }
 
 #header {
 	width: 960px;
-	height: 50px;
+	height: 70px;
 }
 
 #nav {
@@ -76,11 +76,18 @@ html, body {
 	width: 730px;
 }
 
-#nav {
-	height: 620px;
+/* -------- Typography -------- */
+
+h1 {
+	font-weight: normal;
+	margin-left: 20px;
 }
 
 /* -------- Navigation -------- */
+
+#nav {
+	height: 620px;
+}
 
 ul#nav {
 	list-style: none;
@@ -179,18 +186,22 @@ ul#nav {
 	line-height: 30px;
 }
 
+#gallery-next, #gallery-viewer-next, #gallery-prev, #gallery-viewer-prev {
+	text-indent: -9999px;
+	margin: 6.5px 25px;
+	height: 17px;
+	width: 16px;
+	background-image: url('http://www.scottstadt.com/portfolio/image-gallery/images/spt_arrows.png');
+	background-repeat: no-repeat;
+}
+
 #gallery-next, #gallery-viewer-next {
+	background-position: -16px 0;
 	float: right;
 }
 
 #gallery-prev, #gallery-viewer-prev {
 	float: left;
-}
-
-#gallery-next, #gallery-viewer-next, #gallery-prev, #gallery-viewer-prev {
-	color: #fff;
-	margin: 0 10px;
-	line-height: 30px;
 }
 
 .thumbnail {

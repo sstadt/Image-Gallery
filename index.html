@@ -142,16 +142,17 @@
 			});
 			
 			// some extra interface stuff... pay no attention to the man behind the curtain
-			$('#setup-wrapper').hide();
+			var gallery = $('#gallery-wrapper'), setup = $('#setup-wrapper');
+			setup.hide();
 			$('#show-setup').click(function(){
-				$('#gallery-wrapper').fadeOut(400,function(){
-					$('#setup-wrapper').fadeIn();
+				gallery.fadeOut(400,function(){
+					setup.fadeIn();
 				});
 				return false;
 			});
 			$('#show-gallery').click(function(){
-				$('#setup-wrapper').fadeOut(400,function(){
-					$('#gallery-wrapper').fadeIn();
+				setup.fadeOut(400,function(){
+					gallery.fadeIn();
 				});
 				return false;
 			});
