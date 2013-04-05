@@ -110,7 +110,7 @@
 				
 					<h3>Setting Up Your Image Gallery<h3>
 					
-					<p>This image gallery plugin was designed for maximum compatability with a wide array of layouts. As such, adherance to naming conventions is essential for making sure each component of the gallery works properly. This allows for more freedom in placing the various components of the gallery on the page, but also means that if naming conventions are not followed portions of the interface may not work properly. This may require a bit more work up front to get the gallery up and running, but will also impart a great deal of versatility when integrating the plugin to a new page or design.</p>
+					<p>This image gallery plugin was designed for maximum compatibility with a wide array of layouts. As such, adherence to naming conventions is essential for making sure each component of the gallery works properly. This allows for more freedom in placing the various components of the gallery on the page, but also means that if naming conventions are not followed portions of the interface may not work properly. This may require a bit more work up front to get the gallery up and running, but will also impart a great deal of versatility when integrating the plugin to a new page or design.</p>
 					
 					<p>To name each component, choose an Id for your image gallery. Inside this div should be each of the thumbnails for the images in your gallery. For this example, we'll simply call the div 'gallery'.</p>
 
@@ -125,7 +125,7 @@
 &lt;/div&gt;
 </code></pre>
 
-					<p>There are a few things to notice here. Firstly, the thumbnails images are located within the *thumbs* folder, which is located within the *gallery* folder on the server. The full size images in this example would be located within the *gallery* folder. The two most important takeaways here are thus: the thumbnails should be in a folder named *thumbs*, and the *thumbs* folder should be located in the same folder as the full size images. Lastly, each thumbnail image should have the same name and file extension as it's full size counterpart, so image1.jpg in the *thumbs* folder would have a matching full size image1.jpg in the *gallery* directory.</p>
+					<p>There are a few things to notice here. Firstly, the thumbnails images are located within the <em>thumbs</em> folder, which is located within the <em>gallery</em> folder on the server. The full size images in this example would be located within the <em>gallery</em> folder. The two most important takeaways here are thus: the thumbnails should be in a folder named <em>thumbs</em>, and the <em>thumbs</em> folder should be located in the same folder as the full size images. Lastly, each thumbnail image should have the same name and file extension as it's full size counterpart, so image1.jpg in the <em>thumbs</em> folder would have a matching full size image1.jpg in the <em>gallery</em> directory.</p>
 					
 					<p>Sometimes you might not want to use a static size for your thumbnails, if you want your thumbnails to maintain the aspect ratio of the image, for instance. The plugin requires a fixed size for the thumbnails in order to properly set the height and width of the thumbnail portion of the gallery, but you can get around this by nesting each image in a div and styling the thumbnail divs to be a particular size.</p>
 
@@ -161,7 +161,7 @@
 	
 					<p>This is quite handy, as this structure will allow the plugin to automagically center the image within the boundaries of the thumbnail divs.</p>
 					
-					<p>Now that we have our gallery in place, we can set up the other components of the image gallery. There are six other components to the image gallery: the gallery position indicator, gallery next button, gallery previous button, image viewer, image viewer next button, and image viewer previous button. To derive the proper ID name each component should have to work with the plugin, add the following suffix to the ID of each respective gallery component: -pos, -next, -prev, -viewer, -viewer-next, -viewer-prev. So with our example ID of *gallery*, we would derive the following IDs...</p>
+					<p>Now that we have our gallery in place, we can set up the other components of the image gallery. There are six other components to the image gallery: the gallery position indicator, gallery next button, gallery previous button, image viewer, image viewer next button, and image viewer previous button. To derive the proper ID name each component should have to work with the plugin, add the following suffix to the ID of each respective gallery component: -pos, -next, -prev, -viewer, -viewer-next, -viewer-prev. So with our example ID of <em>gallery</em>, we would derive the following IDs...</p>
 
 					<p class="gallery-labels">gallery-pos<br/>
 					gallery-next<br/>
@@ -170,7 +170,7 @@
 					gallery-viewer-next<br/>
 					gallery-viewer-prev</p>
 	
-					<p>Once you've labeled the IDs of each component, you're free to place them anywhere on the page. Anywhere, that is, but within the *gallery* div, whose only child elements should be a list of thumbnails. Here is an example set up for the other components:</p>
+					<p>Once you've labeled the IDs of each component, you're free to place them anywhere on the page. Anywhere, that is, but within the <em>gallery</em> div, whose only child elements should be a list of thumbnails. Here is an example set up for the other components:</p>
 
 <pre><code>&lt;div id="viewer-wrapper"&gt;
 	&lt;div id="gallery-viewer"&gt;
@@ -191,7 +191,7 @@
 	
 					<p>You may notice that I've placed a placeholder image in the viewer for initial loading. This is completely optional, but a nice red flag that something's gone wrong with the plugin. If everything is set up properly, the plugin will automatically place the first thumbnail in the viewer on load. So as long as everything is set up properly, you'll likely never see any image that is hard coded into the DOM.</p>
 					
-					<p>Now that we have each component labeled properly, it's just a matter of calling the _.gallery()_ method on the base *gallery* div.</p>
+					<p>Now that we have each component labeled properly, it's just a matter of calling the .gallery() method on the base <em>gallery</em> div.</p>
 
 <pre><code>$('#gallery').gallery();
 </code></pre>
@@ -208,15 +208,7 @@
 					
 					<h3>Dependencies</h3>
 					
-					<p>Image Gallery is a jQuery plugin, and uses the ImagesLoaded plugin to accurately determine when an image is loaded across all browsers and situations.</p>
-					
-					<dl>
-						<dt>jQuery</dt>
-						<dd></dd>
-						
-						<dt>ImagesLoaded</dt>
-						<dd>https://github.com/desandro/imagesloaded</dd>
-					</dl>
+					<p>Image Gallery is a <a href="http://jquery.com/">jQuery</a> plugin, and uses the <a href="https://github.com/desandro/imagesloaded">ImagesLoaded</a> plugin to accurately determine when an image is loaded across all browsers and situations.</p>
 					
 					<h3>Further Customization</h3>
 					

@@ -150,6 +150,17 @@ ul#nav {
 	margin: 0 auto;
 }
 
+/* -------- Links -------- */
+
+a {
+	text-decoration: none;
+	color: #438fab;
+}
+
+a:hover {
+	color: #a54a6f;
+}
+
 /* -------- Gallery -------- */
 
 #thumbs-wrapper, #viewer-wrapper, #setup-wrapper {
