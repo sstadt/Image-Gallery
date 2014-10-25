@@ -43,7 +43,7 @@ html {
 
 body {
 	height: 100%;
-	background-image: url('http://www.scottstadt.com/portfolio/image-gallery/images/bg_highlight.png');
+	background-image: url('../images/bg_highlight.png');
 	background-position: center center; 
 	background-repeat: no-repeat; 
 	background-attachment: fixed;
@@ -209,7 +209,7 @@ a:hover {
 	margin: 6.5px 25px;
 	height: 17px;
 	width: 16px;
-	background-image: url('http://www.scottstadt.com/portfolio/image-gallery/images/spt_arrows.png');
+	background-image: url('../images/spt_arrows.png');
 	background-repeat: no-repeat;
 }
 
